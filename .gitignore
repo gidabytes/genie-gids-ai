@@ -1,0 +1,16 @@
+# Output of: python3 scripts/check-site.py --assemble _site
+_site/
+
+# Local, editor and Python files
+__pycache__/
+*.pyc
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Never commit secrets or environment files
+.env
+.env.*
+*.pem
+*.key

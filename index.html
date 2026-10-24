@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<title>Genie — GIDS AI Assistant</title>
+<meta name="description" content="Genie is a personal, privacy-first AI assistant that runs on its owner's own computer, with local AI models and user-controlled automation. Part of the GIDS initiative.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#070b14">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Genie — GIDS AI Assistant, home">
+      <img src="assets/favicon.svg" width="36" height="36" alt="">
+      <span>Genie<span class="brand-sub">GIDS AI</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="terms-of-service.html">Terms</a></li>
+        <li><a href="privacy-statement.html">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Personal AI assistant · GIDS initiative</p>
+        <h1 id="page-title">Genie — GIDS AI Assistant</h1>
+        <p class="lead">Genie is a personal AI assistant designed to support productivity, technical workflows, system awareness, and user-controlled automation. The project prioritizes security, privacy, responsible automation, and the preservation of user-controlled local computing environments.</p>
+        <p>Genie runs on its owner's own Linux computer. Its language models run on that computer, it asks before it acts, and the few features that use online services are optional and listed in full in the <a href="privacy-statement.html">Privacy Statement</a>.</p>
+        <p class="hero-actions">
+          <a class="btn btn-primary" href="privacy-statement.html">Privacy Statement</a>
+          <a class="btn btn-secondary" href="terms-of-service.html">Terms of Service</a>
+        </p>
+      </div>
+      <div class="hero-art">
+        <img src="assets/genie-gidsai-logo.svg" width="512" height="512" alt="Genie GIDS AI logo: a glowing cyan-to-blue letter G inside a circuit ring, above the words GIDS AI">
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <p class="notice" role="note"><strong>About this website.</strong> This site introduces the project and publishes its policies. Genie itself is not hosted here and is not offered as an online service: it runs on computers its owner controls. Genie is part of the broader GIDS (Global Infrastructure Detection System) initiative.</p>
+  </div>
+
+  <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Capabilities</p>
+        <h2 id="capabilities-title">What Genie does today, and what is still coming</h2>
+        <p>Each feature is labeled with its current status. Features marked <em>In setup</em> or <em>Planned</em> are not available yet.</p>
+      </div>
+      <ul class="cards">
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>Conversations with a local AI</h3>
+          <p>Questions, explanations and writing help from open-weight language models, such as Qwen, running on the same computer through llama.cpp and Ollama.</p>
+        </li>
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>Hands-free voice</h3>
+          <p>Speak to Genie and hear it reply. Speech recognition and the default voice run on the computer, a wake phrase starts a conversation, and an on-screen indicator shows whenever the microphone is listening. Optional cloud voices, including British accents, can be chosen.</p>
+        </li>
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>System awareness</h3>
+          <p>Answers about the computer, such as storage, memory, processor load, battery and network address, read directly from the system, plus a fixed set of read-only diagnostics.</p>
+        </li>
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>Actions with your approval</h3>
+          <p>Opening apps, files and links; creating, renaming, moving and copying files; changing volume and brightness; locking the screen. Only within the permissions you set, recorded in an activity log, and many can be undone.</p>
+        </li>
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>Private memory and search</h3>
+          <p>Opt-in notes that Genie keeps only when you ask, and search across folders you choose, including search by meaning. Both stay on the computer.</p>
+        </li>
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>Screen reading on request</h3>
+          <p>Reads the text on screen when asked, using on-device text recognition with a visible indicator. The screenshot is deleted straight away.</p>
+        </li>
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>Routines and tasks</h3>
+          <p>Saved step-by-step routines, schedules and a task list, all bound by the same permissions as everything else.</p>
+        </li>
+        <li class="card">
+          <span class="status status-available">Available</span>
+          <h3>Careful web lookups</h3>
+          <p>Typed searches only, confirmed each time. Genie shows titles, snippets and links for you to open; it never opens pages by itself.</p>
+        </li>
+        <li class="card">
+          <span class="status status-setup">In setup</span>
+          <h3>Microsoft 365 email briefings</h3>
+          <p>Read-only access to the owner's work mailbox: spoken briefings, alerts for messages that need attention, and reply drafts saved on the computer. Email text is processed only by local AI models.</p>
+        </li>
+        <li class="card">
+          <span class="status status-planned">Planned</span>
+          <h3>Sending approved replies</h3>
+          <p>Sending a reply only after the owner approves that exact message. This needs an extra Microsoft permission that has not been requested.</p>
+        </li>
+        <li class="card">
+          <span class="status status-planned">Planned</span>
+          <h3>Calendar and Teams in work reports</h3>
+          <p>Adding meetings and chat messages to Genie's spoken work reports. Not built yet.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="privacy" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Privacy-first design</p>
+        <h2 id="privacy-title">Private by default, visible when it matters</h2>
+      </div>
+      <ul class="cards cards-plain">
+        <li class="card">
+          <h3>Local by default</h3>
+          <p>The language models and the default voice run on the computer. Genie's AI service is set to refuse cloud AI providers, and email text is never sent to one.</p>
+        </li>
+        <li class="card">
+          <h3>Visible, never silent</h3>
+          <p>An indicator is shown whenever the microphone is listening, including in hands-free mode, and whenever the screen is being read. Audio stays in memory and is not saved.</p>
+        </li>
+        <li class="card">
+          <h3>Minimal records</h3>
+          <p>Conversation history is deleted after 30 days and can be switched off. The activity log records what happened, not the words of your requests.</p>
+        </li>
+        <li class="card">
+          <h3>Secrets in the keyring</h3>
+          <p>Sign-in tokens and API keys live in the desktop keyring, never in settings files or logs.</p>
+        </li>
+        <li class="card">
+          <h3>Untrusted text stays data</h3>
+          <p>Emails, web results and screen text are treated as information to read, never as instructions for Genie to follow.</p>
+        </li>
+        <li class="card">
+          <h3>No telemetry</h3>
+          <p>Genie's code contains no analytics, tracking or crash reporting. This website sets no cookies and runs no scripts.</p>
+        </li>
+      </ul>
+      <p class="more"><a href="privacy-statement.html">Read the full Privacy Statement</a>, including every online service Genie can use and exactly what it sends.</p>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Local AI and system integration</p>
+        <h2 id="how-title">How it fits together</h2>
+        <p>Genie is a set of ordinary user-level programs on a Linux desktop. It never runs as administrator, and its background services start when needed and stop when idle.</p>
+      </div>
+      <ol class="flow">
+        <li class="flow-step">
+          <span class="flow-kicker">1 · You</span>
+          <strong>Type or speak</strong>
+          <span class="flow-text">Keyboard, push-to-talk or the wake phrase.</span>
+        </li>
+        <li class="flow-step">
+          <span class="flow-kicker">2 · Genie</span>
+          <strong>Understands and checks</strong>
+          <span class="flow-text">Fixed command patterns, your allow / ask / deny permissions, and an activity log.</span>
+        </li>
+        <li class="flow-step">
+          <span class="flow-kicker">3 · On the computer</span>
+          <strong>Local AI answers</strong>
+          <span class="flow-text">Language models through llama.cpp and Ollama; speech through Whisper and Piper. They accept connections only from the computer itself.</span>
+        </li>
+      </ol>
+      <div class="optional-services">
+        <h3>Optional online services, used only when you use the feature</h3>
+        <ul>
+          <li><strong>Microsoft 365</strong>: read-only email access, after you sign in.</li>
+          <li><strong>Google Gemini or ElevenLabs</strong>: cloud voices, only if you choose one.</li>
+          <li><strong>Wikipedia</strong>: typed web searches, confirmed each time.</li>
+        </ul>
+      </div>
+      <p class="fine">NVIDIA GPU acceleration (CUDA) is used when available. Third-party components keep their own licenses and settings.</p>
+    </div>
+  </section>
+
+  <section class="section" id="security" aria-labelledby="security-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Security and user control</p>
+        <h2 id="security-title">You stay in charge</h2>
+      </div>
+      <ul class="cards cards-plain">
+        <li class="card">
+          <h3>The AI never acts on its own</h3>
+          <p>Language models only write text. Every action goes through Genie's permission checks first, and the model has no path to a shell or to administrator rights.</p>
+        </li>
+        <li class="card">
+          <h3>Allow, ask or deny</h3>
+          <p>Each kind of access, such as files, commands, microphone, screen, network and cloud AI, has its own setting. Administrator-level changes are never automatic: Genie gives you the command to run yourself.</p>
+        </li>
+        <li class="card">
+          <h3>Spoken requests are confirmed</h3>
+          <p>Spoken changes are repeated back for confirmation, and risky ones need the keyboard, so a misheard word cannot change anything.</p>
+        </li>
+        <li class="card">
+          <h3>Least privilege for email</h3>
+          <p>Microsoft 365 access is read-only. Genie cannot send, delete or move mail, and reply drafts stay on the computer.</p>
+        </li>
+        <li class="card">
+          <h3>Audit and undo</h3>
+          <p>An activity log on the computer shows what Genie did and which permission allowed it, and many actions can be undone.</p>
+        </li>
+        <li class="card">
+          <h3>Tested safeguards</h3>
+          <p>Genie's safety rules are covered by an automated test suite.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Policies and contact</p>
+        <h2 id="contact-title">Policies, questions and security reports</h2>
+      </div>
+      <ul class="link-list">
+        <li><a href="terms-of-service.html">Terms of Service</a>: how Genie may be used.</li>
+        <li><a href="privacy-statement.html">Privacy Statement</a>: what Genie processes, stores and sends.</li>
+        <li><a href="https://github.com/gidabytes/genie-gids-ai-site/issues">Questions about this website or its policies</a>: public GitHub issues. Please don't include personal information.</li>
+        <li><a href="https://github.com/gidabytes/genie-gids-ai-site/blob/main/SECURITY.md">Security reports</a>: please report privately, as described in the security policy.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Genie — GIDS AI Assistant project. A personal, non-commercial project, not affiliated with or endorsed by Microsoft, Google, ElevenLabs, GitHub or the other organizations named on this site.</p>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="privacy-statement.html">Privacy Statement</a></li>
+        <li><a href="https://github.com/gidabytes/genie-gids-ai-site">Website source</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
