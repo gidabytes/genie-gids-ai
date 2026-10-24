@@ -6,9 +6,9 @@ This is a documentation and branding site only. The Genie app, its settings, mod
 
 | Page | Address |
 |---|---|
-| Homepage | https://gidabytes.github.io/genie-gids-ai-site/ |
-| Terms of Service | https://gidabytes.github.io/genie-gids-ai-site/terms-of-service.html |
-| Privacy Statement | https://gidabytes.github.io/genie-gids-ai-site/privacy-statement.html |
+| Homepage | https://gidabytes.github.io/genie-gids-ai/ |
+| Terms of Service | https://gidabytes.github.io/genie-gids-ai/terms-of-service.html |
+| Privacy Statement | https://gidabytes.github.io/genie-gids-ai/privacy-statement.html |
 
 ## What is in this repository
 
@@ -26,7 +26,8 @@ assets/apple-touch-icon.png             180x180 icon for phones
 robots.txt, sitemap.xml                 hints for search engines
 .nojekyll                               turns off Jekyll (only matters if publishing from a branch)
 scripts/check-site.py                   checks the site before every publish (Python standard library only)
-.github/workflows/pages.yml             checks, then publishes to GitHub Pages
+scripts/publish-gh-pages.sh             publishes to the gh-pages branch (used while Actions is unavailable)
+.github/workflows/pages.yml             checks, then publishes to GitHub Pages (once Actions is available)
 SECURITY.md                             how to report a security problem
 ```
 
@@ -48,14 +49,18 @@ Open http://127.0.0.1:8000/ in a browser, and stop the server with Ctrl+C.
 
 ## How publishing works
 
-Every push to `main` runs the **Publish website** workflow:
+GitHub Actions is currently disabled on the owner's GitHub account (GitHub answers "Actions has been disabled for this user"), so the workflow cannot run. Until that is resolved, the site is published from the **`gh-pages` branch**, which holds only the public files. Settings → Pages is set to **Deploy from a branch: `gh-pages` / (root)**.
 
-1. `python3 scripts/check-site.py --assemble _site` checks the whole repository, then copies only the public files into `_site` and checks that copy.
-2. The upload step packages `_site`, and the deploy step publishes it to GitHub Pages.
+From a clean checkout of `main`:
 
-Pull requests run the check without publishing. The workflow uses GitHub's built-in token with read-only repository access; only the deploy job gets the two Pages permissions it needs.
+```bash
+scripts/publish-gh-pages.sh --dry-run   # check, assemble and show what would change
+scripts/publish-gh-pages.sh             # the same, then push to gh-pages
+```
 
-One-time repository setting: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+The script runs `python3 scripts/check-site.py --assemble _site` first, so nothing is published unless every check passes, and it refuses to run with uncommitted changes, so the live site always matches a commit.
+
+**Once Actions is available again**, switch to the workflow: Settings → Pages → Build and deployment → Source: **GitHub Actions**. From then on every push to `main` runs **Publish website** (`.github/workflows/pages.yml`): it checks the whole repository, copies only the public files into `_site`, checks that copy, and deploys it. Pull requests run the check without publishing. The workflow uses GitHub's built-in token with read-only repository access; only the deploy job gets the two Pages permissions it needs.
 
 ## Updating the branding
 
@@ -86,7 +91,7 @@ python3 scripts/check-site.py
 
 ```bash
 for page in "" terms-of-service.html privacy-statement.html; do
-  curl -sS -o /dev/null -w "%{http_code}  %{url_effective}\n" "https://gidabytes.github.io/genie-gids-ai-site/$page"
+  curl -sS -o /dev/null -w "%{http_code}  %{url_effective}\n" "https://gidabytes.github.io/genie-gids-ai/$page"
 done
 ```
 
@@ -94,19 +99,19 @@ Each line should start with `200`.
 
 ## If a deployment fails
 
-Open the **Actions** tab, select the failed **Publish website** run, and read its annotations and summary.
-
 | What you see | What to do |
 |---|---|
-| An error from the check step | Fix the file and line it names, then push again. |
-| The deploy step fails with status 404 | Pages is not set to use GitHub Actions: Settings → Pages → Source: GitHub Actions. |
-| "Branch is not allowed to deploy to github-pages" | Publish from `main`; the `github-pages` environment only accepts the default branch. |
+| `publish-gh-pages.sh` stops with check errors | Fix the file and line it names, commit, and run it again. |
+| The live page has not changed a few minutes after publishing | Check the latest Pages build: `gh api repos/{owner}/genie-gids-ai/pages/builds/latest`. |
+| "Actions has been disabled for this user" | GitHub has turned off Actions for the account. Keep publishing with the script, or ask GitHub Support to re-enable Actions. |
+| With the workflow: an error from the check step | Open the **Actions** tab, read the failed run's annotations, fix the file and line it names, then push again. |
+| With the workflow: the deploy step fails with status 404 | Pages is not set to use GitHub Actions: Settings → Pages → Source: GitHub Actions. |
 
 ## Rolling back
 
-- **Undo a change:** `git revert <commit>` and push. The workflow republishes the earlier content.
-- **Take the site offline:** Settings → Pages → Unpublish site, or `gh api -X DELETE repos/{owner}/genie-gids-ai-site/pages`.
-- Neither affects the Genie app on the computer.
+- **Undo a change:** revert the commit on `main` (through a pull request), then run `scripts/publish-gh-pages.sh` again. Once the workflow is in use, merging the revert republishes automatically.
+- **Take the site offline:** Settings → Pages → Unpublish site, or `gh api -X DELETE repos/{owner}/genie-gids-ai/pages`.
+- None of this affects the Genie app on the computer.
 
 ## Microsoft Entra branding values
 
@@ -114,9 +119,9 @@ Open the **Actions** tab, select the failed **Publish website** run, and read it
 |---|---|
 | Name | Genie — GIDS AI Assistant |
 | Logo | `assets/genie-gidsai-logo-entra-215.png` (upload the file) |
-| Home page URL | https://gidabytes.github.io/genie-gids-ai-site/ |
-| Terms of service URL | https://gidabytes.github.io/genie-gids-ai-site/terms-of-service.html |
-| Privacy statement URL | https://gidabytes.github.io/genie-gids-ai-site/privacy-statement.html |
+| Home page URL | https://gidabytes.github.io/genie-gids-ai/ |
+| Terms of service URL | https://gidabytes.github.io/genie-gids-ai/terms-of-service.html |
+| Privacy statement URL | https://gidabytes.github.io/genie-gids-ai/privacy-statement.html |
 
 ## Security
 
