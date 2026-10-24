@@ -1,0 +1,6 @@
+# Everything on this site is public and may be indexed.
+# Note: crawlers only read robots.txt at the root of a domain, so on a GitHub Pages project site this file is informational.
+User-agent: *
+Allow: /
+
+Sitemap: https://gidabytes.github.io/genie-gids-ai/sitemap.xml
