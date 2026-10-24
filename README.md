@@ -40,6 +40,8 @@ scripts/check-site.py                   checks the site before every publish (Py
 scripts/publish-gh-pages.sh             publishes to the gh-pages branch (used while Actions is unavailable)
 .github/workflows/pages.yml             checks, then publishes to GitHub Pages (once Actions is available)
 SECURITY.md                             how to report a security problem
+LICENSE                                 MIT License for the code and text
+TRADEMARKS.md                           how the names and logo may be used (not covered by the MIT License)
 ```
 
 ## Design rules
@@ -140,4 +142,6 @@ See [SECURITY.md](SECURITY.md).
 
 ## License
 
-No license has been chosen for this site's content yet. That is the owner's decision.
+- **Code and text:** the [MIT License](LICENSE), copyright 2026 Gideon Rivalde. It covers the HTML pages, the stylesheet, the scripts, the workflow and the documentation.
+- **Names and logo:** not covered by the MIT License. The "Genie — GIDS AI" names and the GIDS AI logo and icons in `assets/` identify the owner's project; see [TRADEMARKS.md](TRADEMARKS.md).
+- **Third-party material:** none is included. The workflow refers to GitHub's own actions, which are not part of this repository.
