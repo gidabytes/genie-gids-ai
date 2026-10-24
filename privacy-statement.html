@@ -39,7 +39,7 @@
   <article class="doc">
     <p class="eyebrow">Policy</p>
     <h1>Privacy Statement</h1>
-    <p class="doc-meta">Effective <time datetime="2026-10-24">24 October 2026</time> · Version 0.1 (draft) · Covers this website and the Genie desktop app</p>
+    <p class="doc-meta">Effective <time datetime="2026-10-24">24 October 2026</time> · Version 0.2 (draft) · Covers this website and the Genie desktop app</p>
 
     <div class="notice notice-draft" role="note">
       <p><strong>Draft, pending the owner's review.</strong> This statement was written from a review of Genie's source code and settings on 24 October 2026. It has not been reviewed by a lawyer.</p>
@@ -116,7 +116,7 @@
       <ul>
         <li><strong>Language models run on the computer</strong>, served by llama.cpp and Ollama, and accept connections only from the computer itself.</li>
         <li><strong>Cloud AI providers are switched off.</strong> Genie's AI service is configured to refuse remote AI providers. If one were enabled later, text you attach, such as selected or on-screen text, would still need your approval each time before it was sent.</li>
-        <li><strong>Email stays with local models.</strong> Genie refuses to work with email if its AI provider is not on the computer.</li>
+        <li><strong>Email stays on the computer.</strong> Genie refuses to work with email if its AI provider is not on the computer, and it reads email aloud only with the computer's own voice.</li>
         <li><strong>Speech is processed on the computer.</strong> Speech recognition (Whisper) and the default voice (Piper) run locally. Audio is kept in memory, never written to disk, and discarded after use, unless you explicitly save a recording.</li>
         <li><strong>Hands-free mode</strong> keeps the microphone open while it is on, with a visible indicator. Speech that is not addressed to Genie with its wake phrase is discarded.</li>
         <li><strong>Screen reading</strong> uses on-device text recognition (Tesseract). The screenshot is a private temporary file that is deleted immediately, and secrets found in the recognized text are hidden.</li>
@@ -143,7 +143,7 @@
             <tr role="row">
               <th scope="row" role="rowheader">Cloud voices</th>
               <td role="cell" data-label="Service">Google (Gemini API) or ElevenLabs</td>
-              <td role="cell" data-label="What is sent">The text Genie is about to say, which can include summaries of your email; when Gemini is used for speech recognition, also your recorded speech</td>
+              <td role="cell" data-label="What is sent">The text Genie is about to say, except email, which is always read with the local voice; when Gemini is used for speech recognition, also your recorded speech</td>
               <td role="cell" data-label="When">Only if you choose a cloud voice. The default voice is local.</td>
             </tr>
             <tr role="row">
@@ -168,7 +168,7 @@
         </table>
       </div>
       <p>Each service handles data under its own terms: the <a href="https://www.microsoft.com/en-us/privacy/privacystatement">Microsoft Privacy Statement</a>, Google's <a href="https://ai.google.dev/gemini-api/terms">Gemini API Additional Terms</a> and <a href="https://policies.google.com/privacy">Privacy Policy</a>, the <a href="https://elevenlabs.io/privacy-policy">ElevenLabs Privacy Policy</a> and the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>.</p>
-      <p class="notice" role="note"><strong>About the Gemini voice.</strong> When a free (unpaid) Gemini API key is used, Google's terms allow Google to use submitted content to improve its products and allow human reviewers to read it, and they ask users not to submit sensitive, confidential or personal information. Keep this in mind before choosing the Gemini voice: anything Genie says aloud, including email summaries, would be sent to Google.</p>
+      <p class="notice" role="note"><strong>About the Gemini voice.</strong> When a free (unpaid) Gemini API key is used, Google's terms allow Google to use submitted content to improve its products and allow human reviewers to read it, and they ask users not to submit sensitive, confidential or personal information. Keep this in mind before choosing the Gemini voice: anything Genie says aloud, except email, would be sent to Google.</p>
     </section>
 
     <section aria-labelledby="microsoft">
@@ -179,9 +179,9 @@
         <li><strong>Permissions.</strong> Genie requests only these delegated permissions: <code>User.Read</code> (your basic profile), <code>Mail.Read</code> (read your mail), <code>offline_access</code> (stay signed in), and <code>openid</code> and <code>profile</code> (sign-in). It does not request permission to send, change or delete mail.</li>
         <li><strong>Tokens.</strong> The long-lived sign-in (refresh) token is stored in your desktop keyring. Short-lived access tokens are kept in memory only.</li>
         <li><strong>How much Genie reads.</strong> At most 25 messages per request. Message text is fetched as plain text and limited to 20,000 characters per message.</li>
-        <li><strong>Processing.</strong> Email text is processed only by AI models on the computer, and it is treated as untrusted information, never as instructions.</li>
+        <li><strong>Processing.</strong> Email text is processed only by AI models on the computer and read aloud only with the computer's own voice. It is treated as untrusted information, never as instructions.</li>
         <li><strong>Kept on the computer:</strong> the IDs of up to 300 recently seen messages (no content), the order of your last inbox list (IDs only), and any reply drafts you ask for, saved as private files marked as local drafts that were not sent.</li>
-        <li><strong>Alerts.</strong> When the background check is on, Genie looks for new mail every 15 minutes. If a message seems to need you, Genie shows a desktop notification with the sender's name and a one-line summary and may read it aloud. The background job also writes that line to the computer's system log (journal), which keeps it according to the computer's log settings.</li>
+        <li><strong>Alerts.</strong> When the background check is on, Genie looks for new mail every 15 minutes. If a message seems to need you, Genie shows a desktop notification with the sender's name and a one-line summary and may read it aloud with the local voice. The background job writes only counts to the computer's system log, never a sender or a summary.</li>
         <li><strong>Sending is not available.</strong> Reply drafts are never sent.</li>
         <li><strong>Stopping access.</strong> Run <code>genie email signout</code> to delete the stored token, and remove the app's access at <a href="https://myapps.microsoft.com">My Apps</a> or through your organization's administrator. Microsoft keeps its own sign-in records under its policies and your organization's settings.</li>
       </ul>
@@ -250,7 +250,7 @@
             <tr role="row">
               <th scope="row" role="rowheader">Background service messages</th>
               <td role="cell" data-label="Where">The computer's system log (journal)</td>
-              <td role="cell" data-label="How long">Status and counts only, such as the length of a request, except the email alert line described in section 6. Kept under the computer's log settings.</td>
+              <td role="cell" data-label="How long">Status and counts only, such as the length of a request. Kept under the computer's log settings.</td>
             </tr>
           </tbody>
         </table>
@@ -334,6 +334,7 @@
         <li><a href="./">Home</a></li>
         <li><a href="terms-of-service.html">Terms of Service</a></li>
         <li><a href="https://github.com/gidabytes/genie-gids-ai">Website source</a></li>
+        <li><a href="https://github.com/gidabytes/genie-gids-ai/blob/main/LICENSE">License (MIT)</a></li>
       </ul>
     </nav>
   </div>
