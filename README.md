@@ -10,6 +10,17 @@ This is a documentation and branding site only. The Genie app, its settings, mod
 | Terms of Service | https://gidabytes.github.io/genie-gids-ai/terms-of-service.html |
 | Privacy Statement | https://gidabytes.github.io/genie-gids-ai/privacy-statement.html |
 
+## Important notes
+
+> [!IMPORTANT]
+> **Strategic Initiative: Digitization and AI Adoption**
+>
+> Genie — GIDS AI is a strategic initiative designed to accelerate digital transformation through intelligent automation, AI-assisted decision-making, workflow optimization, and improved digital productivity. The initiative aims to reduce repetitive manual tasks, streamline operational processes, strengthen system visibility, and enable scalable, data-informed decision-making.
+>
+> The solution prioritizes responsible AI adoption, privacy-by-design, cybersecurity, data governance, human oversight, and controlled integration with existing systems. Its development follows a phased implementation approach, with measurable business value, operational reliability, security validation, and user adoption serving as key success criteria.
+>
+> The long-term vision is to establish a secure, adaptable AI-enabled ecosystem that supports continuous improvement, operational excellence, knowledge accessibility, and sustainable digital transformation while preserving user control and protecting organizational and personal data.
+
 ## What is in this repository
 
 ```text
