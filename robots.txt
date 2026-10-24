@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gidabytes.github.io/genie-gids-ai-site/sitemap.xml
+Sitemap: https://gidabytes.github.io/genie-gids-ai/sitemap.xml

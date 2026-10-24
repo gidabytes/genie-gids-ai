@@ -49,7 +49,7 @@ FORBIDDEN_FILES = re.compile(
     r"(?i)(\.(db|sqlite3?|gguf|safetensors|onnx|pt|pth|ckpt|bin|pem|key|p12|pfx|kdbx|jsonl|log)$"
     r"|(^|/)\.env(\..*)?$|(^|/)id_(rsa|ed25519|ecdsa)(\.pub)?$|(^|/)\.git-credentials$)"
 )
-TEXT_TYPES = {".html", ".css", ".svg", ".txt", ".xml", ".md", ".yml", ".yaml", ".py", ".json", ""}
+TEXT_TYPES = {".html", ".css", ".svg", ".txt", ".xml", ".md", ".yml", ".yaml", ".py", ".sh", ".json", ""}
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 NOT_ALLOWED_TAGS = {"script", "iframe", "object", "embed", "form", "style", "base", "frame", "frameset"}
 PLACEHOLDER = re.compile(r"\{\{[^{}]*\}\}")
